@@ -48,3 +48,12 @@ The benchmark will provide metrics such as:
     Inference time per batch
 
 You can adjust the input data or model list in the config.py file.
+
+
+## Resuls
+
+Bar charts from preliminary experiments:
+
+| Execution Time | GPU Usage | RAM Usage |
+|----------------|-----------|-----------|
+| ![Execution Time Bar](plots/execution_time_sec_bar.png) | ![GPU Usage Bar](plots/GPU_bar.png) | ![RAM Usage Bar](plots/RAM_bar.png) |
