@@ -23,7 +23,7 @@ This repository contains a benchmark designed to analyze resource usage on NVIDI
     pip install --upgrade pip
     pip install -r requirements.txt
    ```
-> ⚠️ This should install the correct PyTorch version from NVIDIAs repository. If not, follow the above blog to manually install it.
+> ⚠️ This requirements.txt should install the correct PyTorch version from NVIDIAs repository in your new venv. If not, follow the above blog to manually install it.
 
 
 
