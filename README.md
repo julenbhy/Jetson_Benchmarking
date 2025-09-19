@@ -56,7 +56,7 @@ Bar charts from preliminary experiments:
 
 | Execution Time | GPU Usage | RAM Usage |
 |----------------|-----------|-----------|
-| ![Execution Time Bar](plots/execution_time_sec_bar.png) | ![GPU Usage Bar](plots/GPU_bar.png) | ![RAM Usage Bar](plots/RAM_bar.png) |
+| ![Execution Time Bar](results/float16/plots/execution_time_sec_bar.png) | ![GPU Usage Bar](results/float16/plots/GPU_bar.png) | ![RAM Usage Bar](results/float16/plots/RAM_bar.png) |
 
 > ⚠️ **Note:** Larger models are not included in the benchmark because they exceed the memory of the Jetson Orin Nano 8GB and may cause it to crash. If you want to test them anyway, they are commented out in `config.py`.
 
