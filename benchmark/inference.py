@@ -1,17 +1,17 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from config import NUM_NEW_TOKENS
+from config import NUM_NEW_TOKENS, DTYPE
 
 def run_inference(model_name: str, prompt: str, max_new_tokens: int = NUM_NEW_TOKENS):
     print(f"\nLoading model: {model_name}")
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-    dtype = torch.float16 if torch.cuda.is_available() and "12b" in model_name else torch.float32
+    #dtype = torch.float16 if torch.cuda.is_available() and "12b" in model_name else torch.float32
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        dtype=dtype,
+        dtype=DTYPE,
         device_map="auto",
         use_safetensors=True
     )

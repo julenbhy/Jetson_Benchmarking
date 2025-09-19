@@ -1,34 +1,31 @@
 # src/config.py
 import os
+import torch
 
-# Models
+# Models to test
+MODEL_NAMES = ["70m", "160m", "410m", "1b", "1.4b"] # "70m", "160m", "410m", "1b", "1.4b", "2.8b", "6.9b", "12b"
+MODELS = [f"EleutherAI/pythia-{label}-deduped" for label in MODEL_NAMES]
 
-MODELS = [  "EleutherAI/pythia-70m-deduped",
-	    "EleutherAI/pythia-160m-deduped",
-            "EleutherAI/pythia-410m-deduped",
-            "EleutherAI/pythia-1b-deduped",
-            #"EleutherAI/pythia-1.4b-deduped",
-            #"EleutherAI/pythia-1b-deduped",
-            #"EleutherAI/pythia-2.8b-deduped",
-            #"EleutherAI/pythia-6.9b-deduped",
-            #"EleutherAI/pythia-12b-deduped",
-         ]
+# Metrics to plot
+PLOT_METRICS = ["RAM", "GPU", "execution_time_sec"]
 
 PROMPT = "Artificial intelligence is useful because"
 
 # General settings
 NUM_NEW_TOKENS = 50
-N_REPEATS = 5
+N_REPEATS = 10
 
-# X-axis labels (must match order in models.txt)
-MODEL_X_AXIS = ["70m", "160m", "410m", "1b"]
-
-# Metrics to plot
-PLOT_METRICS = ["RAM", "GPU", "execution_time_sec"]
+# Precision to test
+DTYPE = torch.bfloat16  # torch.float32
+DTYPE_NAME = "bfloat16" # Also change for result directory
 
 # Directory for saving plots
-PLOTS_DIR = os.path.join(os.path.dirname(__file__), "plots")
-CSV_DIR = os.path.join(os.path.dirname(__file__), "csv")
+BASE_DIR = os.path.dirname(__file__)
+RESULTS_DIR = os.path.join(BASE_DIR, "results", DTYPE_NAME)
+PLOTS_DIR = os.path.join(RESULTS_DIR, "plots")
+CSV_DIR = os.path.join(RESULTS_DIR, "csv")
+
 
 # Disable parallelism warning from HuggingFace tokenizers
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
+

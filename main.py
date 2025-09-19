@@ -1,4 +1,4 @@
-from config import MODELS, PROMPT, N_REPEATS, MODEL_X_AXIS, PLOT_METRICS, PLOTS_DIR, CSV_DIR
+from config import MODELS, PROMPT, N_REPEATS, MODEL_NAMES, PLOT_METRICS, PLOTS_DIR, CSV_DIR
 from benchmark import run_inference, monitor_resources, aggregate_results, print_summary, plot_metrics, save_raw_results_to_csv
 
 
@@ -32,5 +32,5 @@ if __name__ == "__main__":
 	
     save_raw_results_to_csv(all_results, CSV_DIR)
 
-    plot_metrics(avg_results, MODEL_X_AXIS, PLOT_METRICS, PLOTS_DIR)
+    plot_metrics(avg_results, MODEL_NAMES, PLOT_METRICS, PLOTS_DIR)
 
